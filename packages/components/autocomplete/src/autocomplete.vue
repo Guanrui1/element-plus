@@ -15,6 +15,7 @@
        @param transition:
        @event before-show:
        @event hide:
+  -->
   <el-tooltip
     ref="popperRef"
     :visible="suggestionVisible"
