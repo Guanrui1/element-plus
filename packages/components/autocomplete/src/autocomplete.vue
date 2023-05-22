@@ -1,20 +1,21 @@
 <template>
-  <!-- @description: 可以看出 autoComplete 组件是由 tooltip 组件包裹的一个文本输入框（input） 
-       @author Guanrui
-       @param ref: 组件 ref，方便后续取 tooltip 组件内部的值，此处貌似没有用到
-       @param visible: tooltip 是否显示提示框
-       @param placement: tooltip 出现的位置
-       @param fallback-placements: 超出部分反向显示，测试未生效
-       @param popper-class: 悬浮框开启传送门后自定义 class
-       @param teleported: 是否开启传送
-       @param gpu-acceleration:
-       @param pure:
-       @param manual-mode:
-       @param effect:
-       @param trigger:
-       @param transition:
-       @event before-show:
-       @event hide:
+  <!-- 
+    @description: 可以看出 autoComplete 组件是由 tooltip 组件包裹的一个文本输入框（input） 
+    @author Guanrui
+    @param ref: 组件 ref，方便后续取 tooltip 组件内部的值，此处貌似没有用到
+    @param visible: tooltip 是否显示提示框
+    @param placement: tooltip 出现的位置
+    @param fallback-placements: 超出部分反向显示，测试未生效
+    @param popper-class: 悬浮框开启传送门后自定义 class
+    @param teleported: 是否开启传送
+    @param gpu-acceleration: 是否开启 gpu 加速
+    @param pure: 
+    @param manual-mode:
+    @param effect:
+    @param trigger:
+    @param transition:
+    @event before-show:
+    @event hide:
   -->
   <el-tooltip
     ref="popperRef"
