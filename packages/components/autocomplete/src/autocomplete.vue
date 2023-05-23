@@ -9,13 +9,13 @@
     @param popper-class: 悬浮框开启传送门后自定义 class
     @param teleported: 是否开启传送
     @param gpu-acceleration: 是否开启 gpu 加速
-    @param pure: 
-    @param manual-mode:
-    @param effect:
-    @param trigger:
-    @param transition:
-    @event before-show:
-    @event hide:
+    @param pure: 设置 padding 为0，开启的话
+    @param manual-mode: 好像是单元测试用的？
+    @param effect: 主题设置，内置 dark | light，支持自定义
+    @param trigger: 触发方式
+    @param transition: 悬浮窗出现的动画
+    @event before-show: 悬窗窗出现前事件
+    @event hide: 悬浮窗消失前事件
   -->
   <el-tooltip
     ref="popperRef"
