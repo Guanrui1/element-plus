@@ -54,8 +54,28 @@
       :aria-expanded="suggestionVisible"
       :aria-owns="listboxId"
     >
+      <!--
+        @description 定义组件主体，即 el-input 组件
+        @author Guanrui 
+        @param ref 定义 ref，方便获取 dom
+        @param v-bind 接收并支持 e-input 所有属性和事件
+        @param clearable 输入框是否显示清空图标
+        @param disabled 是否禁用输入框
+        @param name 传给 el-input 组件用，作用未知？
+        @param model-value 类似 vue2 中的 value
+        @event input 和 vue2 的 input 事件一样
+        @event change 输入框值改变事件
+        @event focus 输入框聚焦事件
+        @event blur 输入框移开焦点事件
+        @event clear 输入框清空事件
+        @event keydown.up.prevent 输入框聚焦状态下，按 上 方向键触发事件
+        @event keydown.down.prevent 输入框聚焦状态下，按 下 方向键触发事件
+        @event keydown.enter 输入框聚焦状态下，按 回车 键触发事件
+        @event keydown.tab 输入框聚焦状态下，按 tab 键触发事件
+        @event keydown.esc 输入框聚焦状态下，按 esc 键触发事件
+        @event mousedown 按鼠标触发事件，不管左键右键还是中键，只要接触到输入框都会触发
       <el-input
-        ref="inputRef"
+        ref="inputRef" 
         v-bind="attrs"
         :clearable="clearable"
         :disabled="disabled"
