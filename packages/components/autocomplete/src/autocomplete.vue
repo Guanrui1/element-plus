@@ -74,6 +74,7 @@
         @event keydown.tab 输入框聚焦状态下，按 tab 键触发事件
         @event keydown.esc 输入框聚焦状态下，按 esc 键触发事件
         @event mousedown 按鼠标触发事件，不管左键右键还是中键，只要接触到输入框都会触发
+      -->
       <el-input
         ref="inputRef" 
         v-bind="attrs"
@@ -93,6 +94,10 @@
         @keydown.esc="handleKeyEscape"
         @mousedown="handleMouseDown"
       >
+        <!--
+          @description 继承了 el-input 组件的 prepend，append，prefix，suffix 插槽
+          @author Guanrui 
+        -->
         <template v-if="$slots.prepend" #prepend>
           <slot name="prepend" />
         </template>
@@ -108,6 +113,14 @@
       </el-input>
     </div>
     <template #content>
+      <!--
+        @description 定义悬浮窗显示内容
+        @author Guanrui 
+        @param ref 定义 ref，方便获取 dom
+        @param class 定义 el-autocomplete-suggestion 和 is-loading
+        @param style 动态定义 style
+        @param role 无障碍使用
+      -->
       <div
         ref="regionRef"
         :class="[ns.b('suggestion'), ns.is('loading', suggestionLoading)]"
@@ -117,6 +130,15 @@
         }"
         role="region"
       >
+        <!--
+          @description 悬浮框主体，一个滚动区域
+          @author Guanrui 
+          @param id 动态定义 id
+          @param tag 定义 el-scrollbar 内部渲染的父容器
+          @param wrap-class 按照 bem 规则添加样式 .el-autocomplete-suggestion__wrap
+          @param view-class 按照 bem 规则添加样式 .el-autocomplete-suggestion__list
+          @param role 无障碍使用
+        -->
         <el-scrollbar
           :id="listboxId"
           tag="ul"
@@ -124,12 +146,26 @@
           :view-class="ns.be('suggestion', 'list')"
           role="listbox"
         >
+          <!--
+            @description 定义加载中显示的内容
+            @author Guanrui 
+          -->
           <li v-if="suggestionLoading">
             <el-icon :class="ns.is('loading')">
               <Loading />
             </el-icon>
           </li>
           <template v-else>
+            <!--
+              @description 最终显示的内容
+              @author Guanrui 
+              @param id 动态定义 id
+              @param key index 作为 key
+              @param class 定义样式 .highlighted，选中行高亮
+              @param role 无障碍使用
+              @param aria-selected 无障碍使用
+              @event click li 点击事件
+            -->
             <li
               v-for="(item, index) in suggestions"
               :id="`${listboxId}-item-${index}`"
