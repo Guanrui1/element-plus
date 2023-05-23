@@ -34,6 +34,17 @@
     @before-show="onSuggestionShow"
     @hide="onHide"
   >
+    <!-- 
+      @description  listboxRef容器
+      @author Guanrui
+      @param ref 定义 div 的 ref，方便获取 dom
+      @param class 定义 el-autocomplete 样式，以及外部传入的 class
+      @param style 定义动态 style
+      @param role 无障碍使用
+      @param aria-haspopup 无障碍使用
+      @param aria-expanded 无障碍使用
+      @param aria-owns 无障碍使用
+    -->
     <div
       ref="listboxRef"
       :class="[ns.b(), $attrs.class]"
