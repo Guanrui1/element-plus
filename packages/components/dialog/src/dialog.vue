@@ -1,11 +1,31 @@
 <template>
+  <!--
+    @description: 传送门组件
+    @param: to 传送目标 dom
+    @param: disabled 是否禁用传送
+  -->
   <teleport to="body" :disabled="!appendToBody">
+    <!--
+      @description: 动画组件
+      @param: name 设置 name, 方便添加动画 class
+      @event: after-enter 动画事件?
+      @event: after-leave 动画事件?
+      @event: before-leave 动画事件?
+    -->
     <transition
       name="dialog-fade"
       @after-enter="afterEnter"
       @after-leave="afterLeave"
       @before-leave="beforeLeave"
     >
+      <!--
+        @description: overlay 组件功能未知, 猜测是遮罩?
+        @directive: v-show 是否显示组件
+        @param: custom-mask-event 自定义 mask 事件?
+        @param: mask 遮罩是否显示?
+        @param: overlay-class 自定义遮罩 class?
+        @param: z-index 设置 z-index 层级?
+      -->
       <el-overlay
         v-show="visible"
         custom-mask-event
@@ -13,6 +33,19 @@
         :overlay-class="modalClass"
         :z-index="zIndex"
       >
+        <!--
+          @description: 弹窗主体，占满整个窗口
+          @param: role 增强语义性
+          @param: aria-modal 无障碍使用
+          @param: aria-label 无障碍使用
+          @param: aria-labelledby 无障碍使用
+          @param: aria-describedby 无障碍使用
+          @param: class 设置 class 为 el-overlay-dialog
+          @param: style 动态设置 style 为 overlayDialogStyle
+          @event: click 点击事件
+          @event: mousedown 鼠标按下事件
+          @event: mouseup 鼠标按下后回弹事件
+        -->
         <div
           role="dialog"
           aria-modal="true"
@@ -25,6 +58,16 @@
           @mousedown="overlayEvent.onMousedown"
           @mouseup="overlayEvent.onMouseup"
         >
+          <!--
+            @description: element 捕获和处理 focus 组件?
+            @param: loop 是否循环?
+            @param: trapped 是否捕获 focus 事件?
+            @param: focus-start-el 开始触发的 dom, container 算是一个固定值?
+            @event: focus-after-trapped 捕获后聚焦事件
+            @event: focus-after-released 释放后聚焦事件
+            @event: focusout-prevented 阻止聚焦后事件
+            @event: release-requested 请求释放后事件
+          -->
           <el-focus-trap
             loop
             :trapped="visible"
